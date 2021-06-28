@@ -1,0 +1,37 @@
+<body>
+    <div class="container">
+        <div class="texto"><h2>Inicio Sesion</h2></div>
+        <div class="form">
+            <div *ngIf="mensaje!=''" class="alert alert-success">{{mensaje}}</div>
+            <form [formGroup]="formulario" (ngSubmit)="validarInicio()"  ngNativeValidate >
+                <ul>
+                    <li>
+                        correo electronico: <input type="email"  class="control" required>
+                    </li>
+                    <li>
+                        contraseña: <input type="password"  class="control" required>
+                    </li>
+                    <div class="recaptcha">
+                        <re-captcha required
+                        (resolved)="resolved($event)"
+                        siteKey="6Lcl-U4bAAAAAGx18JDE_kNssmRZhJ9ZnaSiUdnr"
+                        >
+                            
+                        </re-captcha>
+                    </div>
+
+                    <li>
+                        <a [routerLink]="['/privado']" routerLinkActive="router-link-active">  <button class="boton" type="submit" [disabled]="formulario.invalid"> Iniciar sesion</button>  </a>
+                        <input class="boton" type="reset">
+                    </li>  
+                    <li>
+                        
+                        <a [routerLink]="['/registro']" routerLinkActive="router-link-active">   <button mat-button >¡registrarse asi!</button> </a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    
+</body>
+

@@ -1,0 +1,56 @@
+<body>
+    <div class="container">
+        <div class="texto"><h2>Registrarse</h2></div>
+        <div class="form">
+            <form [formGroup]="formulario"  onsubmit="validarContrasena()"  (ngSubmit)="enviarDatos()"  ngNativeValidate >
+                <ul>
+                    <li>
+                        Nombre: <input type="text"  class="control" required>
+                    </li>
+                    <li>
+                        Apellidos <input type="text"  class="control" required>
+                    </li>
+                    <li>
+                        rut (sin puntos ni guion): <input type="number"  class="control" required>
+                    </li>
+                    <li>
+                        direccion: <input type="text"  class="control" required>
+                    </li>
+                    <li>
+                        region: <input type="text"  class="control" required>
+                   </li>
+                    <li>
+                        comuna: <input type="text"  class="control" required>
+                    </li> 
+                    <li>
+                        correo electronico: <input type="email"  class="control" required>
+                    </li>
+                    <li>
+                        contraseña: <input type="password" id="contrasena" formControlName="contrasena" class="control" required>
+                    </li>
+                    <li>
+                        repetir contraseña: <input type="password"  id="recontrasena" formControlName="recontrasena" class="control" required>
+                    </li>
+
+                    <div class="recaptcha">
+                        <re-captcha required
+                        (resolved)="resolved($event)"
+                        siteKey="6Lcl-U4bAAAAAGx18JDE_kNssmRZhJ9ZnaSiUdnr"
+                        >
+                            
+                        </re-captcha>
+                    </div>
+
+                    <li>
+                        <input class="boton" type="submit" value="Iniciar sesion">
+                        <input class="boton" type="reset">
+                    </li>  
+                    <li>
+                        <a [routerLink]="['/inicio']" routerLinkActive="router-link-active">   <button mat-button >volver a inicio de sesion</button> </a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    
+</body>
